@@ -1,56 +1,115 @@
-# Welcome to your Expo app 👋
+# LabMaster – Educational Laboratory Compilation Mobile Application
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+LabMaster is a centralized compilation mobile application designed for students and educators to access, organize, browse, and review React Native laboratory activities. Built with **React Native** and **Expo**, it satisfies all technical requirements for academic mobile application development hands-on exercises.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Features
 
-   ```bash
-   npm install
-   ```
+- **Home Dashboard:**
+  - Personalized welcome greeting with student credentials.
+  - Dynamic statistics cards calculating Total, Completed, In-Progress, and Upcoming exercises from live data.
+  - Quick action shortcuts to primary application destinations.
+  - Recent activities feed with status indicators.
+- **Activities Directory:**
+  - Comprehensive catalog of laboratory exercises.
+  - Real-time search by title, activity number, or keyword using `useState`.
+  - Filter chips for status (`All`, `Completed`, `In Progress`, `Not Started`).
+  - High-performance scrolling with `FlatList`.
+- **Dynamic Activity Details:**
+  - Reusable screen rendering laboratory number, title, description, and status.
+  - Learning objectives checklist.
+  - Step-by-step laboratory instructions.
+  - Technical concepts breakdown and JavaScript / React Native code snippets.
+  - Verification & compilation status indicators.
+  - Native system share action.
+- **Global Dark & Light Theme:**
+  - Shared state managed via **React Context API** (`ThemeContext`).
+  - Persistent theme mode across restarts using `@react-native-async-storage/async-storage`.
+  - Immediate synchronized update across all screens and bottom navigation.
+- **Modular Component Architecture:**
+  - Fully reusable, prop-driven components (`CustomButton`, `ActivityCard`, `StatCard`, `SearchBar`, `CustomHeader`, `ThemeToggle`, `BottomNavigation`).
+- **Responsive Flexbox Design:**
+  - Adaptive two-column grids, fluid cards, and safe-area notch awareness for various Android display sizes.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Technologies Used
 
-In the output, you'll find options to open the app in a
+| Technology | Purpose |
+| :--- | :--- |
+| **React Native (0.88+)** | Core mobile application framework |
+| **Expo SDK (58+)** | Development toolchain & native modules |
+| **JavaScript (ES6+)** | Primary programming language |
+| **React Navigation (v7)** | Bottom Tabs and Native Stack navigation |
+| **React Context API** | Application-wide theme state management |
+| **AsyncStorage** | Local persistent storage for theme preference |
+| **Expo Vector Icons (Ionicons)** | Native iconography |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Directory Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+LabMaster/
+├── App.js                         # Root application entry point
+├── app.json                       # Expo configuration & metadata
+├── package.json                   # Dependency definitions and scripts
+├── assets/                        # App icons and splash assets
+├── src/
+│   ├── components/                # Reusable UI components
+│   │   ├── ActivityCard.js        # Reusable laboratory exercise card
+│   │   ├── BottomNavigation.js    # Reusable bottom navigation tab bar
+│   │   ├── CustomButton.js        # Reusable button with variants
+│   │   ├── CustomHeader.js        # Reusable screen header with back action
+│   │   ├── SearchBar.js           # Reusable search input with clear trigger
+│   │   ├── StatCard.js            # Reusable metric statistic card
+│   │   └── ThemeToggle.js         # Reusable Dark/Light mode switch
+│   ├── context/
+│   │   └── ThemeContext.js        # Global theme provider (React Context)
+│   ├── data/
+│   │   └── activities.js          # Centralized laboratory activity dataset
+│   ├── hooks/
+│   │   └── useTheme.js            # Custom hook for theme consumption
+│   ├── navigation/
+│   │   └── AppNavigator.js        # Combined Stack & Bottom Tab navigator
+│   ├── screens/
+│   │   ├── AboutScreen.js         # App purpose & developer information
+│   │   ├── ActivitiesScreen.js    # Filterable list of all activities
+│   │   ├── ActivityDetailsScreen.js # Dynamic details & code snippet screen
+│   │   ├── HomeScreen.js          # Central dashboard with statistics
+│   │   └── SettingsScreen.js      # Student profile & appearance controls
+│   ├── styles/
+│   │   └── theme.js               # Centralized light & dark color palettes
+│   └── utils/
+│       └── storage.js             # AsyncStorage helper functions
+└── README.md
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+---
 
-### Other setup steps
+## 🚀 Getting Started & Installation
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+### 1. Prerequisites
+- **Node.js** (v18 or higher recommended)
+- **npm** or **bun**
+- **Expo Go** app installed on your Android device (available on Google Play Store) or Android Studio Virtual Device (AVD).
 
-## Learn more
+### 2. Running the Application
+Start the Metro development server:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm start
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- **Run on Android Device:** Scan the QR code in the terminal using the **Expo Go** app.
+- **Run on Android Emulator:** Press `a` in the terminal with an active emulator running.
+- **Run on Web Preview:** Press `w` to open in your browser.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## 👨‍💻 Developer Information
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Developer:** Kaiser Octobre
+- **Course:** BS Information Technology – Mobile Application Development
+- **Project:** Hands-on Activity Compilation (LabMaster)
